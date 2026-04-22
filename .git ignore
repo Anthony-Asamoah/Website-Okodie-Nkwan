@@ -1,0 +1,48 @@
+# Node modules (if you use npm)
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories (optional)
+jspm_packages/
+
+# Build / production folders
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor / IDE files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Temporary files
+*.tmp
+*.temp
+
+# Cache folders
+.cache/
+.parcel-cache/
+
+# Coverage reports
+coverage/
+
+# Optional: lock files (ONLY if you want to ignore them)
+# package-lock.json
+# yarn.lock
