@@ -172,6 +172,11 @@ footer .glyphicon {
   visibility: visible;
 }
 
+.search-bar {
+  margin: 0 auto;
+  max-width: 500px;
+}
+
 @keyframes slide {
   0% {
     opacity: 0;
