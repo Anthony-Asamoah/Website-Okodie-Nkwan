@@ -14,11 +14,14 @@ $(document).ready(function(){
       $('html, body').animate({
         scrollTop: $(hash).offset().top
       }, 900, function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
       });
     } // End if
+
+    // Collapse the mobile navbar after any link click
+    if ($('.navbar-collapse').hasClass('in')) {
+      $('.navbar-collapse').collapse('hide');
+    }
   });
   
   $(window).scroll(function() {
