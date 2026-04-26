@@ -5,8 +5,8 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css"/>
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Lato:wght@400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap"
+          rel="stylesheet"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="static/css/style.css"/>
@@ -17,21 +17,18 @@
     <link rel="manifest" href="media/favicon_io/site.webmanifest">
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<!-- ========== NAVBAR ========== -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <button
-                    type="button"
-                    class="navbar-toggle"
-                    data-toggle="collapse"
-                    data-target="#myNavbar"
-            >
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#myPage">
-                <img src="media/images/logo.jpg" alt="Ɔkɔdeɛ Nkwan" style="height:36px; margin-right:8px; vertical-align:middle; border-radius:4px;">
+                <img src="media/images/logo.jpg" alt="Ɔkɔdeɛ Nkwan">
                 Ɔkɔdeɛ Nkwan
             </a>
         </div>
@@ -47,45 +44,68 @@
     </div>
 </nav>
 
-<div class="jumbotron text-center header-background">
-    <h1>Ɔkɔdeɛ Nkwan</h1>
-    <p>
-        A hearty local chicken soup, slow-cooked with fresh spices for that authentic home taste
-    </p>
-    <form>
-        <div class="input-group search-bar">
-            <input
-                    type="email"
-                    class="form-control"
-                    size="50"
-                    placeholder="Email Address"
-                    required
-            />
-            <div class="input-group-btn">
-                <button type="button" class="btn btn-danger">Subscribe</button>
+<!-- ========== HERO ========== -->
+<div class="jumbotron">
+    <!-- Mobile video background (hidden on desktop via CSS) -->
+    <video class="hero-video" autoplay muted loop playsinline>
+        <source src="media/videos/hero-vid.MP4" type="video/mp4">
+    </video>
+
+    <!-- Dark overlay (always on, ensures text legibility) -->
+    <div class="hero-overlay"></div>
+
+    <!-- Hero content -->
+    <div class="hero-content">
+        <span class="hero-badge">Authentic Ghanaian Chop Bar</span>
+        <h1>Ɔkɔdeɛ Nkwan</h1>
+        <p class="hero-tagline">
+            A steaming bowl from the chop bar place,<br>
+            Slow-cooked, a genuine taste.<br>
+            Filled with love so true,<br>
+            Ghana, on a plate for you.
+        </p>
+        <form>
+            <span class="text-muted">Subscribe to our newsletter for gists, promotions and more</span>
+            <div class="input-group search-bar">
+                <input
+                        type="email"
+                        class="form-control"
+                        size="50"
+                        placeholder="Your email address"
+                        required
+                />
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-danger">Subscribe</button>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
+
+    <!-- Scroll cue -->
+    <div class="hero-scroll-hint">
+        Scroll
+        <span class="scroll-line"></span>
+    </div>
 </div>
 
-<!-- Container (About Section) -->
+<!-- ========== ABOUT ========== -->
 <div id="about" class="container-fluid">
     <div class="row">
         <div class="col-sm-8">
+            <span class="section-label">Our Story</span>
             <h2>About The Founder – Charity Appiah</h2>
-            <br/>
+            <div class="section-divider"></div>
             <h4>
                 A hardworking, resilient, and independent woman, Charity Appiah is a proud mother of two daughters who
                 built her journey from humble beginnings to success through determination and perseverance.
             </h4>
-
             <p>
                 The restaurant was founded as more than just a place to eat—it is a welcoming space where everyone can
                 find comfort, good food, and a sense of community. Rooted in tradition, it serves as a refreshing stop
-                for all who pass by, offering authentic Ghanaian flavors with warmth and hospitality.
+                for all who pass by, offering authentic Ghanaian flavours with warmth and hospitality.
             </p>
             <br/>
-            <button class="btn btn-default btn-lg"><a href="#contact">Get in Touch</a></button>
+            <a href="#contact" class="cta-btn">Get in Touch</a>
         </div>
         <div class="col-sm-4">
             <img class="founder-img" src="media/images/founder.jpg" alt="Charity Appiah, Founder"/>
@@ -93,85 +113,98 @@
     </div>
 </div>
 
-<div class="container-fluid bg-grey">
+<!-- ========== VALUES ========== -->
+<div class="container-fluid values-section">
     <div class="row">
-        <div class="col-sm-4">
-            <span class="glyphicon glyphicon-globe logo slideanim"></span>
+        <div class="col-sm-4 text-center slideanim">
+            <span class="logo-small glyphicon glyphicon-cutlery"></span>
         </div>
         <div class="col-sm-8">
+            <span class="section-label">What We Stand For</span>
             <h2>Our Values</h2>
-            <br/>
+            <div class="section-divider"></div>
             <h4>
                 <strong>MISSION:</strong> To serve high-quality, authentic Ghanaian dishes with consistency and care,
                 delivering excellent customer service while creating a welcoming space that feels like home.
             </h4>
-            <br/>
             <p>
                 <strong>VISION:</strong> To be recognized among the top restaurants in Ghana, celebrated for our rich
-                flavors, cultural authenticity, and unforgettable dining experience.
+                flavours, cultural authenticity, and unforgettable dining experience.
             </p>
         </div>
     </div>
 </div>
 
-<!-- Container (Menu Section) -->
+<!-- ========== MENU ========== -->
 <div id="services" class="container-fluid text-center">
-    <h2>MENU</h2>
+    <span class="section-label">What We Serve</span>
+    <h2>Menu</h2>
+    <div class="section-divider"></div>
     <h4>Choose Your Meal, Soup &amp; Protein</h4>
     <br/>
 
     <div class="row slideanim">
+        <!-- Swallows -->
         <div class="col-sm-4">
-            <h4>SWALLOWS</h4>
-            <ul style="list-style-type: disc; text-align: left; display: inline-block;">
-                <li>Fufu - 20₵ and above</li>
-                <li>Banku - 10₵ and above</li>
-                <li>Kokonte - 10₵ and above</li>
-                <li>Omutuo (Rice Balls) - 10₵ and above</li>
-            </ul>
+            <div class="menu-card menu-card--swallows">
+                <span class="menu-icon-lg">🍚</span>
+                <h4>Swallows</h4>
+                <ul>
+                    <li>Fufu — 20₵ and above</li>
+                    <li>Banku — 10₵ and above</li>
+                    <li>Kokonte — 10₵ and above</li>
+                    <li>Omutuo (Rice Balls) — 10₵ and above</li>
+                </ul>
+            </div>
         </div>
 
+        <!-- Soups -->
         <div class="col-sm-4">
-            <h4>SOUPS</h4>
-            <ul style="list-style-type: disc; text-align: left; display: inline-block;">
-                <li>Okro Soup</li>
-                <li>Light Soup</li>
-                <li>Palm Nut Soup</li>
-                <li>Ground Nut Soup</li>
-                <li>Ebunubunu (Green Soup)</li>
-            </ul>
+            <div class="menu-card menu-card--soups">
+                <span class="menu-icon-lg">🍲</span>
+                <h4>Soups</h4>
+                <ul>
+                    <li>Okro Soup</li>
+                    <li>Light Soup</li>
+                    <li>Palm Nut Soup</li>
+                    <li>Ground Nut Soup</li>
+                    <li>Ebunubunu (Green Soup)</li>
+                </ul>
+            </div>
         </div>
 
+        <!-- Proteins -->
         <div class="col-sm-4">
-            <h4>PROTEINS</h4>
-            <ul style="list-style-type: disc; text-align: left; display: inline-block;">
-                <li>Goat Meat - 40₵</li>
-                <li>Akrantie - 60₵</li>
-                <li>Cow Meat - 40₵</li>
-                <li>Chicken - 30₵</li>
-                <li>Snails - 30₵ up to 50₵</li>
-                <li>Tuna - 20₵</li>
-                <li>Dry Fish - 50₵ up to 70₵</li>
-                <li>Tilapia - 40₵</li>
-            </ul>
+            <div class="menu-card menu-card--proteins">
+                <span class="menu-icon-lg">🍖</span>
+                <h4>Proteins</h4>
+                <ul>
+                    <li>Goat Meat — 40₵</li>
+                    <li>Akrantie — 60₵</li>
+                    <li>Cow Meat — 40₵</li>
+                    <li>Chicken — 30₵</li>
+                    <li>Snails — 30₵ up to 50₵</li>
+                    <li>Tuna — 20₵</li>
+                    <li>Dry Fish — 50₵ up to 70₵</li>
+                    <li>Tilapia — 40₵</li>
+                </ul>
+            </div>
         </div>
     </div>
-
 </div>
 
-<!-- Container (Gallery Section) -->
+<!-- ========== GALLERY ========== -->
 <div id="portfolio" class="container-fluid text-center bg-grey">
+    <span class="section-label">From Our Kitchen</span>
     <h2>Our Food</h2>
-    <br/>
+    <div class="section-divider"></div>
     <h4>Specialties and Featured Dishes</h4>
+    <br/>
 
     <div class="row text-center slideanim">
         <div class="col-sm-4">
             <div class="thumbnail">
-                <img
-                        src="media/images/kokonte.webp"
-                        alt="Kokonte with Groundnut Soup"
-                />
+                <img src="media/images/kokonte.webp" alt="Kokonte with Groundnut Soup"/>
                 <p><strong>Kokonte &amp; Groundnut Soup</strong></p>
                 <p>Hearty kokonte served with rich, flavorful groundnut soup.</p>
             </div>
@@ -179,10 +212,7 @@
 
         <div class="col-sm-4">
             <div class="thumbnail">
-                <img
-                        src="media/images/fufu.webp"
-                        alt="Fufu with Light Soup"
-                />
+                <img src="media/images/fufu.webp" alt="Fufu with Light Soup"/>
                 <p><strong>Fufu &amp; Light Soup</strong></p>
                 <p>Smooth, hand-pounded fufu paired with fragrant light soup and your choice of protein.</p>
             </div>
@@ -190,10 +220,7 @@
 
         <div class="col-sm-4">
             <div class="thumbnail">
-                <img
-                        src="media/images/menu.jpg"
-                        alt="Featured Dish"
-                />
+                <img src="media/images/menu.jpg" alt="Chef's Special"/>
                 <p><strong>Chef's Special</strong></p>
                 <p>A rotating daily special made from the freshest ingredients — ask our staff what's on today.</p>
             </div>
@@ -202,75 +229,59 @@
 
     <br/>
 
+    <!-- Testimonials -->
+    <span class="section-label" style="margin-top:40px; display:block;">Happy Customers</span>
     <h2>What Our Customers Say</h2>
-    <div
-            id="myCarousel"
-            class="carousel slide text-center"
-            data-ride="carousel"
-    >
-        <!-- Indicators -->
+    <div class="section-divider"></div>
+
+    <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-target="#myCarousel" data-slide-to="1"></li>
             <li data-target="#myCarousel" data-slide-to="2"></li>
         </ol>
 
-        <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
             <div class="item active">
                 <h4>
-                    "The fufu and light soup here tastes exactly like home. I drive across town just for this — it's the most authentic Ghanaian food I've had in Accra."<br/>
-                    <span>Abena Mensah, Accra</span>
+                    "The fufu and light soup here tastes exactly like home. I drive across town just for this — it's the
+                    most authentic Ghanaian food I've had in Accra."
+                    <br/><span>Abena Mensah, Accra</span>
                 </h4>
             </div>
-
             <div class="item">
                 <h4>
-                    "Madam Charity's groundnut soup is something else. The portions are generous, the flavours are deep, and the service always makes you feel welcome."<br/>
-                    <span>Kofi Boateng, Tema</span>
+                    "Madam Charity's groundnut soup is something else. The portions are generous, the flavours are deep,
+                    and the service always makes you feel welcome."
+                    <br/><span>Kofi Boateng, Tema</span>
                 </h4>
             </div>
-
             <div class="item">
                 <h4>
-                    "I brought my whole family for lunch and everyone was impressed. The kokonte was perfectly cooked and the goat meat was so tender. We'll definitely be back!"<br/>
-                    <span>Akosua Darko, Kumasi</span>
+                    "I brought my whole family for lunch and everyone was impressed. The kokonte was perfectly cooked
+                    and the goat meat was so tender. We'll definitely be back!"
+                    <br/><span>Akosua Darko, Kumasi</span>
                 </h4>
             </div>
         </div>
 
-        <!-- Left and right controls -->
-        <a
-                class="left carousel-control"
-                href="#myCarousel"
-                role="button"
-                data-slide="prev"
-        >
-          <span
-                  class="glyphicon glyphicon-chevron-left"
-                  aria-hidden="true"
-          ></span>
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a
-                class="right carousel-control"
-                href="#myCarousel"
-                role="button"
-                data-slide="next"
-        >
-          <span
-                  class="glyphicon glyphicon-chevron-right"
-                  aria-hidden="true"
-          ></span>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
     </div>
 </div>
 
-<!-- Container (Catering Section) -->
+<!-- ========== CATERING ========== -->
 <div id="pricing" class="container-fluid">
     <div class="text-center">
+        <span class="section-label">Feed a Crowd</span>
         <h2>Catering Packages</h2>
+        <div class="section-divider"></div>
         <h4>Let us bring authentic Ghanaian flavours to your event</h4>
     </div>
 
@@ -281,7 +292,6 @@
                 <div class="panel-heading">
                     <h1>Small</h1>
                 </div>
-
                 <div class="panel-body">
                     <p><strong>✔</strong> Feeds up to 15 people</p>
                     <p><strong>✔</strong> 2 swallow options</p>
@@ -289,22 +299,20 @@
                     <p><strong>✔</strong> 1 protein choice</p>
                     <p><strong>✔</strong> Disposable packs included</p>
                 </div>
-
                 <div class="panel-footer">
                     <h3>Contact Us</h3>
                     <h4>Great for small gatherings</h4>
-                    <button class="btn btn-lg">Enquire</button>
+                    <a href="#contact" class="btn btn-lg">Enquire</a>
                 </div>
             </div>
         </div>
 
-        <!-- FAMILY -->
+        <!-- FAMILY (featured) -->
         <div class="col-sm-4 col-xs-12">
             <div class="panel panel-default text-center">
                 <div class="panel-heading">
                     <h1>Family</h1>
                 </div>
-
                 <div class="panel-body">
                     <p><strong>✔</strong> Feeds up to 40 people</p>
                     <p><strong>✔</strong> 3 swallow options</p>
@@ -312,11 +320,10 @@
                     <p><strong>✔</strong> 2 protein choices</p>
                     <p><strong>✔</strong> Serving staff included</p>
                 </div>
-
                 <div class="panel-footer">
                     <h3>Contact Us</h3>
                     <h4>Most popular choice</h4>
-                    <button class="btn btn-lg">Enquire</button>
+                    <a href="#contact" class="btn btn-lg">Enquire</a>
                 </div>
             </div>
         </div>
@@ -327,7 +334,6 @@
                 <div class="panel-heading">
                     <h1>Event</h1>
                 </div>
-
                 <div class="panel-body">
                     <p><strong>✔</strong> Feeds 80+ people</p>
                     <p><strong>✔</strong> Full menu access</p>
@@ -335,90 +341,69 @@
                     <p><strong>✔</strong> Multiple protein choices</p>
                     <p><strong>✔</strong> On-site setup &amp; service</p>
                 </div>
-
                 <div class="panel-footer">
                     <h3>Contact Us</h3>
                     <h4>For weddings &amp; large events</h4>
-                    <button class="btn btn-lg">Enquire</button>
+                    <a href="#contact" class="btn btn-lg">Enquire</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Container (Contact Section) -->
+<!-- ========== CONTACT ========== -->
 <div id="contact" class="container-fluid bg-grey">
-    <h2 class="text-center">CONTACT</h2>
+    <span class="section-label" style="text-align:center; display:block; color:var(--color-secondary);">Reach Out</span>
+    <h2 class="text-center">Contact</h2>
+    <div class="section-divider" style="margin-left:auto; margin-right:auto;"></div>
+    <br/>
     <div class="row">
         <div class="col-sm-5">
-            <p>Contact us and we'll get back to you asap.</p>
-            <p>
-                <span class="glyphicon glyphicon-map-marker"></span> Abelemkpe, Accra
-            </p>
+            <p>Contact us and we'll get back to you as soon as possible.</p>
+            <p><span class="glyphicon glyphicon-map-marker"></span> Abelemkpe, Accra</p>
             <p><span class="glyphicon glyphicon-phone"></span> +233 24 324 4446</p>
-            <p>
-                <span class="glyphicon glyphicon-envelope"></span>
-                info@okodienkwan.com
-            </p>
+            <p><span class="glyphicon glyphicon-envelope"></span> info@okodienkwan.com</p>
         </div>
         <div class="col-sm-7 slideanim">
             <div class="row">
                 <div class="col-sm-6 form-group">
-                    <input
-                            class="form-control"
-                            id="name"
-                            name="name"
-                            placeholder="Name"
-                            type="text"
-                            required
-                    />
+                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required/>
                 </div>
                 <div class="col-sm-6 form-group">
-                    <input
-                            class="form-control"
-                            id="email"
-                            name="email"
-                            placeholder="Email"
-                            type="email"
-                            required
-                    />
+                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required/>
                 </div>
             </div>
-            <textarea
-                    class="form-control"
-                    id="comments"
-                    name="comments"
-                    placeholder="Comment"
-                    rows="5"
-            ></textarea
-            ><br/>
+            <textarea class="form-control" id="comments" name="comments" placeholder="Your message" rows="5"></textarea>
+            <br/>
             <div class="row">
                 <div class="col-sm-12 form-group">
-                    <button class="btn btn-default pull-right" type="submit">
-                        Send
-                    </button>
+                    <button class="btn btn-default pull-right" type="submit">Send Message</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Full-width map -->
+<!-- ========== MAP ========== -->
 <div style="width:100%; line-height:0;">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.6997181507377!2d-0.2201430250144293!3d5.611289994369634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9bd3a7e146b7%3A0x6902fa456dce4ab6!2sOkodie%20Nkwan!5e0!3m2!1sen!2sgh!4v1777207092814!5m2!1sen!2sgh"
+    <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.6997181507377!2d-0.2201430250144293!3d5.611289994369634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9bd3a7e146b7%3A0x6902fa456dce4ab6!2sOkodie%20Nkwan!5e0!3m2!1sen!2sgh!4v1777207092814!5m2!1sen!2sgh"
             width="100%" height="450" style="border:0; display:block;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+            referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
 </div>
 
+<!-- ========== FOOTER ========== -->
 <footer class="container-fluid text-center">
-    <a href="#myPage" title="To Top">
+    <a href="#myPage" title="Back to top">
         <span class="glyphicon glyphicon-chevron-up"></span>
     </a>
     <p>
-        Website Created By
-        <a href="https://www.seoto.com" title="Visit seoto">www.seoto.com</a>
+        Site Made by Quan Chii
+        <!--        <a href="https://www.seoto.com" title="Visit seoto">www.seoto.com</a>-->
     </p>
 </footer>
+
 <script src="static/js/script.js"></script>
 </body>
 </html>
