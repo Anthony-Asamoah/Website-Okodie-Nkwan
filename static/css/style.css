@@ -1005,9 +1005,11 @@ textarea.form-control {
 }
 
 @media screen and (max-width: 768px) {
-  .location-col { padding: 0; }
+  .locations-row { margin: 0; }
+  .location-col { padding: 0; width: 100%; }
+  .location-card { border-radius: 12px; }
   .location-map-wrap,
-  .location-map-wrap iframe { min-height: 260px; }
+  .location-map-wrap iframe { min-height: 220px; }
 }
 
 /* ===========================
