@@ -721,22 +721,110 @@ p { color: var(--text-body); }
 }
 
 /* ===========================
-   CONTACT SECTION
+   REACH OUT / REVIEWS SECTIONS
    =========================== */
-#contact {
+
+/* Shared split layout */
+.contact-split {
+  display: flex;
+  gap: 72px;
+  align-items: flex-start;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.contact-info-col { flex: 0 0 320px; }
+.contact-form-col { flex: 1; }
+
+.contact-intro {
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.contact-details { display: flex; flex-direction: column; gap: 14px; }
+
+.contact-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.contact-detail-item i {
+  width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.contact-form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 12px;
+}
+
+.form-status-msg {
+  font-size: 13px;
+  font-family: var(--font-heading);
+}
+
+.contact-submit-btn {
+  background-color: var(--color-secondary);
+  border: none;
+  color: var(--color-dark);
+  font-family: var(--font-heading);
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background-color var(--ease);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.contact-submit-btn:hover {
+  background-color: var(--color-secondary-dark);
+}
+
+/* Reach Out section — dark */
+.contact-section {
   background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-2) 100%);
 }
 
-#contact h2 { color: var(--color-gold); }
+.contact-section h2       { color: var(--color-gold); }
+.contact-section .contact-intro,
+.contact-section .contact-detail-item { color: var(--color-cream); }
+.contact-section .contact-detail-item i { color: var(--color-secondary); }
+.contact-section .section-label { color: var(--color-secondary); }
 
-#contact > .row > .col-sm-5 p,
-#contact > .row > .col-sm-5 span { color: var(--color-cream); }
-
-#contact .glyphicon {
-  color: var(--color-secondary);
-  margin-right: 8px;
+/* Reviews section — warm surface */
+.reviews-section {
+  background-color: var(--color-surface);
 }
 
+.reviews-section h2          { color: var(--color-primary); }
+.reviews-section .section-label { color: var(--color-secondary); }
+.reviews-section .contact-intro { color: var(--text-body); }
+
+.review-quote {
+  border-left: 3px solid var(--color-secondary);
+  padding: 12px 20px;
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  background: rgba(245,155,26,0.07);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+/* Shared form controls */
 .form-control {
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
@@ -758,26 +846,7 @@ textarea.form-control {
   resize: vertical;
 }
 
-#contact .btn-default {
-  background-color: var(--color-secondary);
-  border: none;
-  color: var(--color-dark);
-  font-family: var(--font-heading);
-  font-size: 11px;
-  letter-spacing: 3px;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding: 14px 32px;
-  border-radius: var(--radius);
-  transition: background-color var(--ease);
-}
-
-#contact .btn-default:hover {
-  background-color: var(--color-secondary-dark);
-  color: var(--color-dark);
-}
-
-/* Form intro label */
+/* Form intro label (legacy — kept for any remaining uses) */
 .form-intro-label {
   font-family: var(--font-heading);
   font-size: 10px;
@@ -840,6 +909,12 @@ textarea.form-control {
 
 /* Scale the star under cursor — always active */
 .star-rating label:hover                        { transform: scale(1.18); }
+
+/* Reviews section — override star colours for light background */
+.reviews-section .star-rating-label            { color: var(--text-muted); }
+.reviews-section .star-optional                { color: var(--color-border); }
+.reviews-section .star-rating label            { color: var(--color-border); }
+.reviews-section .star-rating:not(.is-selected):hover input:checked ~ label { color: var(--color-border); }
 
 /* ===========================
    LOCATIONS / MAP SECTION
@@ -1080,6 +1155,16 @@ footer p {
   .hero-content h1 { font-size: 56px; }
   .founder-img { height: auto; max-width: 100%; }
   .gallery-strip { margin: 28px -32px 40px; }
+  .contact-split { gap: 48px; }
+  .contact-info-col { flex: 0 0 260px; }
+}
+
+@media screen and (max-width: 820px) {
+  .contact-split {
+    flex-direction: column;
+    gap: 36px;
+  }
+  .contact-info-col { flex: none; width: 100%; }
 }
 
 @media screen and (max-width: 768px) {

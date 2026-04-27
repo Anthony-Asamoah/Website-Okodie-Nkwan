@@ -96,7 +96,8 @@
                 <li><a href="#portfolio">GALLERY</a></li>
                 <li><a href="#locations">LOCATION</a></li>
                 <li><a href="#about">ABOUT</a></li>
-                <li><a href="#contact">CONTACT</a></li>
+                <li><a href="#contact">REACH OUT</a></li>
+                <li><a href="#reviews">REVIEWS</a></li>
             </ul>
         </div>
     </div>
@@ -576,7 +577,7 @@
                 for all who pass by, offering authentic Ghanaian flavours with warmth and hospitality.
             </p>
             <br/>
-            <a href="#contact" class="cta-btn">Leave a Review</a>
+            <a href="#reviews" class="cta-btn">Leave a Review</a>
         </div>
         <div class="col-sm-4">
             <img class="founder-img" src="media/images/founder.jpg" alt="Charity Appiah, Founder" loading="lazy"/>
@@ -584,54 +585,102 @@
     </div>
 </div>
 
-<!-- ========== CONTACT ========== -->
-<div id="contact" class="container-fluid bg-grey">
-    <span class="section-label" style="text-align:center; display:block; color:var(--color-secondary);">Reach Out</span>
-    <h2 class="text-center">Contact</h2>
-    <div class="section-divider" style="margin-left:auto; margin-right:auto;"></div>
-    <br/>
-    <div class="row">
-        <div class="col-sm-5">
-            <p>Make an inquiry, leave a review or help us improve.
-                <br>All feedback or questions are warmly welcomed.</p>
-            <p><span class="glyphicon glyphicon-map-marker"></span> Abelemkpe, Accra</p>
-            <p><span class="glyphicon glyphicon-phone"></span> +233 24 324 4446</p>
-            <p><span class="glyphicon glyphicon-envelope"></span> okodienkwangh@gmail.com</p>
+<!-- ========== REACH OUT ========== -->
+<div id="contact" class="container-fluid contact-section">
+    <div class="contact-split">
+        <div class="contact-info-col">
+            <span class="section-label">Inquiries &amp; Orders</span>
+            <h2>Reach Out</h2>
+            <div class="section-divider"></div>
+            <p class="contact-intro">Have a question, want to place an order, or exploring catering? We're all ears — drop us a message and we'll get back to you.</p>
+            <div class="contact-details">
+                <div class="contact-detail-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Abelemkpe, Accra</span>
+                </div>
+                <div class="contact-detail-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>+233 24 324 4446</span>
+                </div>
+                <div class="contact-detail-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>okodienkwangh@gmail.com</span>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-7 slideanim">
-            <p class="form-intro-label">Reach out via the form</p>
-            <form id="contact-form">
-            <div class="row">
-                <div class="col-sm-6 form-group">
-                    <input class="form-control" id="name" name="name" placeholder="Name" type="text" required/>
+        <div class="contact-form-col slideanim">
+            <form id="inquiry-form">
+                <input type="hidden" name="form_type" value="Inquiry"/>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" name="name" placeholder="Name" type="text" required/>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" name="email" placeholder="Email" type="email" required/>
+                    </div>
                 </div>
-                <div class="col-sm-6 form-group">
-                    <input class="form-control" id="email" name="email" placeholder="Email" type="email" required/>
+                <div class="form-group">
+                    <select class="form-control" name="subject" required>
+                        <option value="" disabled selected>Type of enquiry</option>
+                        <option>General Inquiry</option>
+                        <option>Place an Order</option>
+                        <option>Catering Request</option>
+                        <option>Other</option>
+                    </select>
                 </div>
-            </div>
-            <div class="star-rating-wrap">
-                <span class="star-rating-label">Rate your experience <span class="star-optional">(optional)</span></span>
-                <div class="star-rating" role="radiogroup" aria-label="Star rating">
-                    <input type="radio" id="star5" name="rating" value="5 stars"/>
-                    <label for="star5" title="5 stars">★</label>
-                    <input type="radio" id="star4" name="rating" value="4 stars"/>
-                    <label for="star4" title="4 stars">★</label>
-                    <input type="radio" id="star3" name="rating" value="3 stars"/>
-                    <label for="star3" title="3 stars">★</label>
-                    <input type="radio" id="star2" name="rating" value="2 stars"/>
-                    <label for="star2" title="2 stars">★</label>
-                    <input type="radio" id="star1" name="rating" value="1 star"/>
-                    <label for="star1" title="1 star">★</label>
+                <textarea class="form-control" name="comments" placeholder="Your message…" rows="5"></textarea>
+                <div class="contact-form-footer">
+                    <span id="inquiry-status" class="form-status-msg"></span>
+                    <button class="contact-submit-btn" type="submit" id="inq-btn">Send Message</button>
                 </div>
-            </div>
-            <textarea class="form-control" id="comments" name="comments" placeholder="Your message" rows="5"></textarea>
-            <br/>
-            <div class="row">
-                <div class="col-sm-12 form-group">
-                    <span id="form-status" class="pull-left" style="padding-top:8px;"></span>
-                    <button class="btn btn-default pull-right" type="submit" id="send-btn">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- ========== REVIEWS ========== -->
+<div id="reviews" class="container-fluid reviews-section">
+    <div class="contact-split">
+        <div class="contact-info-col">
+            <span class="section-label">Share Your Experience</span>
+            <h2>Leave a Review</h2>
+            <div class="section-divider"></div>
+            <p class="contact-intro">Had a bowl with us? Honest words help us grow and help others know what to expect.</p>
+            <blockquote class="review-quote">
+                "Every bowl tells a story — yours helps us tell ours better."
+            </blockquote>
+        </div>
+        <div class="contact-form-col slideanim">
+            <form id="review-form">
+                <input type="hidden" name="form_type" value="Review"/>
+                <div class="row">
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" name="name" placeholder="Name" type="text" required/>
+                    </div>
+                    <div class="col-sm-6 form-group">
+                        <input class="form-control" name="email" placeholder="Email" type="email" required/>
+                    </div>
                 </div>
-            </div>
+                <div class="star-rating-wrap">
+                    <span class="star-rating-label">Rate your experience</span>
+                    <div class="star-rating" role="radiogroup" aria-label="Star rating">
+                        <input type="radio" id="star5" name="rating" value="5 stars"/>
+                        <label for="star5" title="5 stars">★</label>
+                        <input type="radio" id="star4" name="rating" value="4 stars"/>
+                        <label for="star4" title="4 stars">★</label>
+                        <input type="radio" id="star3" name="rating" value="3 stars"/>
+                        <label for="star3" title="3 stars">★</label>
+                        <input type="radio" id="star2" name="rating" value="2 stars"/>
+                        <label for="star2" title="2 stars">★</label>
+                        <input type="radio" id="star1" name="rating" value="1 star"/>
+                        <label for="star1" title="1 star">★</label>
+                    </div>
+                </div>
+                <textarea class="form-control" name="comments" placeholder="Tell us about your experience…" rows="5"></textarea>
+                <div class="contact-form-footer">
+                    <span id="review-status" class="form-status-msg"></span>
+                    <button class="contact-submit-btn" type="submit" id="rev-btn">Submit Review</button>
+                </div>
             </form>
         </div>
     </div>
