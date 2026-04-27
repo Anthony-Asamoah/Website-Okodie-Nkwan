@@ -1005,9 +1005,11 @@ textarea.form-control {
 }
 
 @media screen and (max-width: 768px) {
-  .location-col { padding: 0; }
+  .locations-row { margin: 0; }
+  .location-col { padding: 0; width: 100%; }
+  .location-card { border-radius: 12px; }
   .location-map-wrap,
-  .location-map-wrap iframe { min-height: 260px; }
+  .location-map-wrap iframe { min-height: 220px; }
 }
 
 /* ===========================
@@ -1160,11 +1162,83 @@ footer p {
 }
 
 @media screen and (max-width: 820px) {
+  /* Grid: text rows span both columns, then icons + form share the last row */
   .contact-split {
-    flex-direction: column;
-    gap: 36px;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    column-gap: 20px;
+    row-gap: 0;
   }
-  .contact-info-col { flex: none; width: 100%; }
+
+  /* Dissolve info-col box so its children become direct grid items */
+  .contact-info-col { display: contents; }
+
+  /* Section label and divider are surplus on mobile */
+  .contact-info-col .section-label   { display: none; }
+  .contact-info-col .section-divider { display: none; }
+  .contact-info-col .review-quote    { display: none; }
+
+  /* Heading and intro span the full width above the icon/form row */
+  .contact-info-col h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 10px;
+  }
+
+  .contact-info-col .contact-intro {
+    grid-column: 1 / -1;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  /* 40px icon strip — sits in the left column beside the form */
+  .contact-info-col .contact-details {
+    grid-column: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 4px;
+  }
+
+  .contact-detail-item      { justify-content: center; gap: 0; }
+  .contact-detail-item span { display: none; }
+  .contact-detail-item i    { font-size: 18px; width: auto; }
+
+  /* Contact section: icons+text row above form, form full width */
+  .contact-section .contact-info-col .contact-details {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    padding-top: 0;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+
+  .contact-section .contact-detail-item {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .contact-section .contact-detail-item span { display: inline; }
+  .contact-section .contact-detail-item i    { font-size: 16px; }
+
+  .contact-section .contact-form-col { grid-column: 1 / -1; }
+
+  /* Reviews section: no icon strip, form spans full width */
+  .reviews-section .contact-form-col { grid-column: 1 / -1; }
+
+  /* Full-width submit button on mobile */
+  .contact-form-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .contact-submit-btn {
+    align-self: stretch;
+    text-align: center;
+  }
 }
 
 @media screen and (max-width: 768px) {
