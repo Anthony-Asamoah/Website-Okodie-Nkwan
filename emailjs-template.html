@@ -26,11 +26,16 @@
           <tr>
             <td style="background-color:#FFFFFF;padding:32px;border-left:1px solid #E8D5B5;border-right:1px solid #E8D5B5;">
 
-              <p style="margin:0 0 6px;font-size:13px;color:#8B6347;text-transform:uppercase;letter-spacing:2px;font-weight:700;">
-                New Message
+              <!-- Form type badge -->
+              <p style="margin:0 0 6px;">
+                <span style="display:inline-block;background-color:#F59B1A;color:#1A0A00;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;padding:4px 14px;border-radius:20px;">
+                  {{form_type}}
+                </span>
               </p>
-              <p style="margin:0 0 24px;font-size:15px;color:#5C3D2E;line-height:1.6;">
-                A message from <strong style="color:#1A0A00;">{{name}}</strong> has been received via the website contact form.
+
+              <p style="margin:12px 0 24px;font-size:15px;color:#5C3D2E;line-height:1.6;">
+                A new <strong style="color:#1A0A00;">{{form_type}}</strong> from
+                <strong style="color:#1A0A00;">{{name}}</strong> has been received via the website.
                 Kindly respond at your earliest convenience.
               </p>
 
@@ -38,21 +43,47 @@
               <table role="presentation" width="100%" style="border:1px dashed #E8D5B5;border-radius:8px;overflow:hidden;">
                 <tr>
                   <td style="padding:24px;">
+
+                    <!-- Sender -->
                     <p style="margin:0 0 2px;font-size:15px;color:#1A0A00;font-weight:700;">
                       {{name}}
                     </p>
-                    <p style="margin:0 0 16px;font-size:13px;color:#8B6347;">
+                    <p style="margin:0 0 20px;font-size:13px;color:#8B6347;">
                       {{email}}
                     </p>
 
-                    <!-- Rating row (only visible when rating is provided) -->
-                    <p style="margin:0 0 16px;font-size:13px;color:#8B6347;text-transform:uppercase;letter-spacing:2px;font-weight:700;">
-                      Rating &nbsp;<span style="font-size:17px;color:#F59B1A;letter-spacing:2px;">{{rating}}</span>
-                    </p>
+                    <!-- Enquiry type (Reach Out form) -->
+                    <table role="presentation" width="100%" style="margin-bottom:16px;">
+                      <tr>
+                        <td width="130" style="font-size:11px;color:#8B6347;text-transform:uppercase;letter-spacing:2px;font-weight:700;vertical-align:top;padding-top:2px;">
+                          Enquiry Type
+                        </td>
+                        <td style="font-size:14px;color:#1A0A00;font-weight:600;">
+                          {{subject}}
+                        </td>
+                      </tr>
+                    </table>
 
+                    <!-- Rating (Review form) -->
+                    <table role="presentation" width="100%" style="margin-bottom:20px;">
+                      <tr>
+                        <td width="130" style="font-size:11px;color:#8B6347;text-transform:uppercase;letter-spacing:2px;font-weight:700;vertical-align:top;padding-top:2px;">
+                          Rating
+                        </td>
+                        <td style="font-size:16px;color:#F59B1A;letter-spacing:3px;">
+                          {{rating}}
+                        </td>
+                      </tr>
+                    </table>
+
+                    <!-- Message -->
+                    <p style="margin:0 0 6px;font-size:11px;color:#8B6347;text-transform:uppercase;letter-spacing:2px;font-weight:700;">
+                      Message
+                    </p>
                     <p style="margin:0;font-size:15px;color:#5C3D2E;line-height:1.7;white-space:pre-line;">
                       {{comments}}
                     </p>
+
                   </td>
                 </tr>
               </table>
@@ -81,7 +112,7 @@
                 <a href="mailto:okodienkwangh@gmail.com" style="color:#F59B1A;text-decoration:none;">okodienkwangh@gmail.com</a>
               </p>
               <p style="margin:6px 0 0;font-size:11px;color:#3D2010;">
-                This email was sent automatically from the contact form at okodienkwan.com
+                This email was sent automatically from okodienkwan.com
               </p>
             </td>
           </tr>
