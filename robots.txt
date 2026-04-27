@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://okodienkwan.com/sitemap.xml
