@@ -10,6 +10,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="static/css/style.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script src="static/js/config.js"></script>
+    <script>emailjs.init(EMAILJS_CONFIG.publicKey);</script>
 
     <link rel="apple-touch-icon" sizes="180x180" href="media/favicon_io/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="media/favicon_io/favicon-32x32.png">
@@ -365,6 +368,7 @@
             <p><span class="glyphicon glyphicon-envelope"></span> info@okodienkwan.com</p>
         </div>
         <div class="col-sm-7 slideanim">
+            <form id="contact-form">
             <div class="row">
                 <div class="col-sm-6 form-group">
                     <input class="form-control" id="name" name="name" placeholder="Name" type="text" required/>
@@ -377,9 +381,11 @@
             <br/>
             <div class="row">
                 <div class="col-sm-12 form-group">
-                    <button class="btn btn-default pull-right" type="submit">Send</button>
+                    <span id="form-status" class="pull-left" style="padding-top:8px;"></span>
+                    <button class="btn btn-default pull-right" type="submit" id="send-btn">Send</button>
                 </div>
             </div>
+            </form>
         </div>
     </div>
 </div>
