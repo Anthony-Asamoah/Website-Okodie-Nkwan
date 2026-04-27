@@ -1202,8 +1202,26 @@ footer p {
   .contact-detail-item span { display: none; }
   .contact-detail-item i    { font-size: 18px; width: auto; }
 
-  /* Contact section: form fills the right column beside the icons */
-  .contact-section .contact-form-col { grid-column: 2; }
+  /* Contact section: icons+text row above form, form full width */
+  .contact-section .contact-info-col .contact-details {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px 24px;
+    padding-top: 0;
+    margin-bottom: 20px;
+    align-items: center;
+  }
+
+  .contact-section .contact-detail-item {
+    justify-content: flex-start;
+    gap: 8px;
+  }
+
+  .contact-section .contact-detail-item span { display: inline; }
+  .contact-section .contact-detail-item i    { font-size: 16px; }
+
+  .contact-section .contact-form-col { grid-column: 1 / -1; }
 
   /* Reviews section: no icon strip, form spans full width */
   .reviews-section .contact-form-col { grid-column: 1 / -1; }
