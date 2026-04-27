@@ -831,14 +831,14 @@ textarea.form-control {
 }
 
 /* Hover preview — reset checked highlight, apply hover fill */
-.star-rating:hover input:checked ~ label        { color: rgba(255,248,239,0.20); }
-.star-rating label:hover,
-.star-rating label:hover ~ label                { color: var(--color-secondary); }
+.star-rating:not(.is-selected):hover input:checked ~ label { color: rgba(255,248,239,0.20); }
+.star-rating:not(.is-selected) label:hover,
+.star-rating:not(.is-selected) label:hover ~ label         { color: var(--color-secondary); }
 
 /* Checked state */
 .star-rating input:checked ~ label              { color: var(--color-secondary); }
 
-/* Slight pop on the star being clicked */
+/* Scale the star under cursor — always active */
 .star-rating label:hover                        { transform: scale(1.18); }
 
 /* ===========================

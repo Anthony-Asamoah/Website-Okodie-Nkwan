@@ -1,5 +1,10 @@
 $(document).ready(function () {
 
+    // Lock hover preview once a star is selected
+    $(".star-rating input[type='radio']").on("change", function () {
+        $(this).closest(".star-rating").addClass("is-selected");
+    });
+
     // Contact form submission via EmailJS
     $("#contact-form").on("submit", function (e) {
         e.preventDefault();
