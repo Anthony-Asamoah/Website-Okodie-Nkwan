@@ -37,22 +37,20 @@
               <!-- Message card -->
               <table role="presentation" width="100%" style="border:1px dashed #E8D5B5;border-radius:8px;overflow:hidden;">
                 <tr>
-                  <!-- Avatar column -->
-                  <td style="vertical-align:top;padding:20px 8px 20px 20px;width:56px;">
-                    <div style="background-color:#FFF0D6;border-radius:8px;width:44px;height:44px;text-align:center;line-height:44px;font-size:22px;">
-                      👤
-                    </div>
-                  </td>
-
-                  <!-- Content column -->
-                  <td style="vertical-align:top;padding:20px 20px 20px 12px;">
+                  <td style="padding:24px;">
                     <p style="margin:0 0 2px;font-size:15px;color:#1A0A00;font-weight:700;">
                       {{name}}
                     </p>
-                    <p style="margin:0 0 2px;font-size:13px;color:#8B6347;">
+                    <p style="margin:0 0 16px;font-size:13px;color:#8B6347;">
                       {{email}}
                     </p>
-                    <p style="margin:12px 0 0;font-size:15px;color:#5C3D2E;line-height:1.7;white-space:pre-line;">
+
+                    <!-- Rating row (only visible when rating is provided) -->
+                    <p style="margin:0 0 16px;font-size:13px;color:#8B6347;text-transform:uppercase;letter-spacing:2px;font-weight:700;">
+                      Rating &nbsp;<span style="font-size:17px;color:#F59B1A;letter-spacing:2px;">{{rating}}</span>
+                    </p>
+
+                    <p style="margin:0;font-size:15px;color:#5C3D2E;line-height:1.7;white-space:pre-line;">
                       {{comments}}
                     </p>
                   </td>
