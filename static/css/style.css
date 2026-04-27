@@ -818,19 +818,102 @@ textarea.form-control {
 }
 
 /* ===========================
+   SOCIAL LINKS
+   =========================== */
+
+/* Hero socials */
+.hero-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.hero-socials-label {
+  font-family: var(--font-heading);
+  font-size: 9px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,248,239,0.50);
+  font-weight: 700;
+}
+
+.hero-socials-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.hero-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.22);
+  color: rgba(255,248,239,0.75);
+  font-size: 15px;
+  text-decoration: none;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(4px);
+  transition: border-color var(--ease), color var(--ease), background-color var(--ease);
+}
+
+.hero-social-link:hover {
+  border-color: var(--color-secondary);
+  color: var(--color-secondary);
+  background: rgba(245,155,26,0.14);
+  text-decoration: none;
+}
+
+/* Footer socials */
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(245,155,26,0.32);
+  color: var(--color-secondary);
+  font-size: 16px;
+  text-decoration: none;
+  transition: border-color var(--ease), color var(--ease), background-color var(--ease);
+}
+
+.footer-social-link:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: rgba(232,192,58,0.10);
+  text-decoration: none;
+}
+
+/* ===========================
    FOOTER
    =========================== */
 footer.container-fluid {
   background-color: var(--color-dark);
-  padding: 28px 50px;
+  padding: 36px 50px 28px;
   border-top: 3px solid var(--color-primary);
+}
+
+.footer-top-link {
+  display: inline-block;
+  margin-bottom: 10px;
 }
 
 footer .glyphicon {
   font-size: 20px;
   color: var(--color-secondary);
   display: block;
-  margin-bottom: 10px;
 }
 
 footer a {
