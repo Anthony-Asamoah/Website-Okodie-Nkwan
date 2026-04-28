@@ -1,3 +1,9 @@
+(function () {
+    var s = document.createElement('script');
+    s.src = 'https://www.google.com/recaptcha/api.js?render=' + EMAILJS_CONFIG.recaptchaSiteKey;
+    document.head.appendChild(s);
+}());
+
 $(document).ready(function () {
 
     // Lock hover preview once a star is selected
@@ -5,37 +11,44 @@ $(document).ready(function () {
         $(this).closest(".star-rating").addClass("is-selected");
     });
 
-    // Shared EmailJS form handler
-    function handleFormSubmit(formId, btnId, statusId, successMsg, btnLabel) {
+    // Shared EmailJS form handler with reCAPTCHA v3
+    function handleFormSubmit(formId, btnId, statusId, successMsg, btnLabel, action) {
         $(formId).on("submit", function (e) {
             e.preventDefault();
 
             var $btn    = $(btnId);
             var $status = $(statusId);
+            var form    = this;
 
             $btn.prop("disabled", true).text("Sending…");
             $status.text("").css("color", "");
 
-            emailjs.sendForm(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, this)
-                .then(function () {
-                    $status.text(successMsg).css("color", "#2D6E4F");
-                    $(formId)[0].reset();
-                    $(formId).find(".star-rating").removeClass("is-selected");
-                })
-                .catch(function (err) {
-                    $status.text("Something went wrong. Please try again.").css("color", "#C8340C");
-                    console.error("EmailJS error:", err);
-                })
-                .finally(function () {
-                    $btn.prop("disabled", false).text(btnLabel);
-                });
+            grecaptcha.ready(function () {
+                grecaptcha.execute(EMAILJS_CONFIG.recaptchaSiteKey, { action: action })
+                    .then(function (token) {
+                        $(formId).find('input[name="recaptcha_token"]').val(token);
+                        return emailjs.sendForm(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, form);
+                    })
+                    .then(function () {
+                        $status.text(successMsg).css("color", "#2D6E4F");
+                        $(formId)[0].reset();
+                        $(formId).find(".star-rating").removeClass("is-selected");
+                    })
+                    .catch(function (err) {
+                        $status.text("Something went wrong. Please try again.").css("color", "#C8340C");
+                        console.error("EmailJS error:", err);
+                    })
+                    .finally(function () {
+                        $btn.prop("disabled", false).text(btnLabel);
+                    });
+            });
         });
     }
 
     handleFormSubmit("#inquiry-form", "#inq-btn", "#inquiry-status",
-        "Message sent! We'll be in touch.", "Send Message");
+        "Message sent! We'll be in touch.", "Send Message", "inquiry");
     handleFormSubmit("#review-form",  "#rev-btn", "#review-status",
-        "Review submitted — thank you!", "Submit Review");
+        "Review submitted — thank you!", "Submit Review", "review");
     // Add smooth scrolling to all links in navbar + footer link
     $(".navbar a, footer a[href='#myPage']").on('click', function (event) {
         // Make sure this.hash has a value before overriding default behavior
