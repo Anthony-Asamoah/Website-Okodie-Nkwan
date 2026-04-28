@@ -27,11 +27,11 @@ jobs:
 
       - name: Inject EmailJS config
         run: |
-          cat > static/js/config.js <<EOF
+          cat > static/js/config.js <<'EOF'
           var EMAILJS_CONFIG = {
-            publicKey:  "${{ secrets.EMAILJS_PUBLIC_KEY }}",
-            serviceId:  "${{ secrets.EMAILJS_SERVICE_ID }}",
-            templateId: "${{ secrets.EMAILJS_TEMPLATE_ID }}"
+            publicKey:        "${{ secrets.EMAILJS_PUBLIC_KEY }}",
+            serviceId:        "${{ secrets.EMAILJS_SERVICE_ID }}",
+            templateId:       "${{ secrets.EMAILJS_TEMPLATE_ID }}",
             recaptchaSiteKey: "${{ secrets.RECAPTCHA_SITE_KEY }}"
           };
           EOF
