@@ -32,6 +32,7 @@ jobs:
             publicKey:  "${{ secrets.EMAILJS_PUBLIC_KEY }}",
             serviceId:  "${{ secrets.EMAILJS_SERVICE_ID }}",
             templateId: "${{ secrets.EMAILJS_TEMPLATE_ID }}"
+            recaptchaSiteKey: "${{ secrets.RECAPTCHA_SITE_KEY }}"
           };
           EOF
 
