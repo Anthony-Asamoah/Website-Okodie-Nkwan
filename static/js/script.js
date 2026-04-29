@@ -75,13 +75,20 @@ $(document).ready(function () {
     });
 
     $(window).scroll(function () {
-        $(".slideanim").each(function () {
-            var pos = $(this).offset().top;
+        var scrollTop = $(window).scrollTop();
 
-            var winTop = $(window).scrollTop();
-            if (pos < winTop + 600) {
+        $(".slideanim").each(function () {
+            if ($(this).offset().top < scrollTop + 600) {
                 $(this).addClass("slide");
             }
         });
+
+        // Parallax on mobile only — background moves at 40% of scroll speed
+        if ($(window).width() <= 768) {
+            $("#services, .locations-section").each(function () {
+                var offset = (scrollTop - $(this).offset().top) * 0.4;
+                $(this).css("background-position-y", "calc(50% + " + offset + "px)");
+            });
+        }
     });
 })

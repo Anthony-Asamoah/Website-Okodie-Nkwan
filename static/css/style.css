@@ -104,6 +104,66 @@ p { color: var(--text-body); }
 .text-center .section-divider { margin-left: auto; margin-right: auto; }
 
 /* ===========================
+   PAGE LOADER
+   =========================== */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--color-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#page-loader.loaded {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.loader-ring {
+  width: 60px;
+  height: 60px;
+  animation: loader-spin 1.4s linear infinite;
+}
+
+.loader-ring__track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.12);
+  stroke-width: 4;
+}
+
+.loader-ring__fill {
+  fill: none;
+  stroke: var(--color-secondary);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: 70;
+}
+
+@keyframes loader-spin {
+  to { transform: rotate(360deg); }
+}
+
+.loader-wordmark {
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 3px;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+/* ===========================
    NAVBAR
    =========================== */
 .navbar {
@@ -383,28 +443,73 @@ p { color: var(--text-body); }
 /* ===========================
    MENU SECTION
    =========================== */
-#services { background-color: var(--color-cream); }
-#services h2 { color: var(--color-primary); }
+#services {
+  background-image: url('../../media/images/label-on-chair.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+}
 
+/* Very dark gradient so headings above cards are legible in white */
+#services::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 5, 0, 0.97) 0%,
+    rgba(10, 5, 0, 0.93) 28%,
+    rgba(10, 5, 0, 0.80) 50%,
+    rgba(10, 5, 0, 0.93) 100%
+  );
+}
+
+#services::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 38%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.90) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+#services > * { position: relative; }
+
+/* Section headings — white against the dark overlay */
+#services h2           { color: #ffffff; -webkit-text-stroke: 1px var(--color-secondary); font-weight: 800; }
+#services > .section-label { color: #ffffff; letter-spacing: 4px; font-weight: 700; mix-blend-mode: overlay; }
+#services > h4         { color: #ffffff; font-weight: 600; mix-blend-mode: overlay; }
+#services .section-divider { background-color: var(--color-secondary); opacity: 0.7; }
+
+/* Light frosted-glass cards — warm cream tint, dark text inside */
 .menu-card {
-  background: var(--color-white);
+  background: rgba(255, 248, 235, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: var(--radius-lg);
   padding: 36px 28px 32px;
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
   height: 100%;
   text-align: center;
   margin-bottom: 24px;
-  transition: transform var(--ease), box-shadow var(--ease);
+  transition: transform var(--ease), box-shadow var(--ease), background var(--ease);
 }
 
 .menu-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-lg);
+  background: rgba(255, 248, 235, 0.92);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.45);
 }
 
 .menu-card--swallows { border-top: 4px solid var(--color-primary); }
 .menu-card--soups    { border-top: 4px solid var(--color-secondary); }
 .menu-card--proteins { border-top: 4px solid var(--color-accent); }
+
+.menu-card ul li { border-bottom-color: rgba(26, 10, 0, 0.12); }
 
 .menu-icon-lg {
   font-size: 38px;
@@ -421,7 +526,8 @@ p { color: var(--text-body); }
   margin-bottom: 22px;
 }
 
-.menu-card--swallows h4 { color: var(--color-primary); }
+/* Card headings use brand accent colors — readable on light card bg */
+.menu-card--swallows h4 { color: var(--color-primary-dark); }
 .menu-card--soups    h4 { color: var(--color-secondary-dark); }
 .menu-card--proteins h4 { color: var(--color-accent); }
 
@@ -920,14 +1026,47 @@ textarea.form-control {
    LOCATIONS / MAP SECTION
    =========================== */
 .locations-section {
-  background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-2) 100%);
+  background-image: url('../../media/images/label-on-chair.jpg');
+  background-size: cover;
+  background-position: center 50%;
+  background-attachment: fixed;
+  position: relative;
 }
 
-.locations-section h2         { color: var(--color-gold); }
-.locations-section .section-label { color: var(--color-secondary); }
+.locations-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 5, 0, 0.97) 0%,
+    rgba(10, 5, 0, 0.93) 28%,
+    rgba(10, 5, 0, 0.80) 50%,
+    rgba(10, 5, 0, 0.93) 100%
+  );
+}
+
+.locations-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 38%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.90) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+.locations-section > * { position: relative; }
+
+.locations-section h2              { color: #ffffff; -webkit-text-stroke: 1px var(--color-gold); font-weight: 800; }
+.locations-section .section-label  { color: #ffffff; font-weight: 700; mix-blend-mode: overlay; }
+.locations-section .section-divider { background-color: var(--color-secondary); opacity: 0.7; }
 
 .locations-subtitle {
-  color: rgba(255,248,239,0.70);
+  color: #ffffff;
+  font-weight: 600;
+  mix-blend-mode: overlay;
   font-size: 15px;
   margin-bottom: 48px;
   margin-top: -16px;
@@ -945,10 +1084,13 @@ textarea.form-control {
 }
 
 .location-card {
-  background: var(--color-white);
+  background: rgba(255, 248, 235, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -956,14 +1098,14 @@ textarea.form-control {
 
 .location-card-header {
   padding: 22px 24px 18px;
-  background: var(--color-cream);
-  border-bottom: 1px solid var(--color-border);
+  background: rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(26, 10, 0, 0.10);
 }
 
 .location-card-header h3 {
   font-family: var(--font-display);
   font-size: 20px;
-  color: var(--color-primary);
+  color: var(--color-dark);
   margin: 6px 0 4px;
 }
 
@@ -1253,6 +1395,12 @@ footer p {
 
   .col-sm-4   { text-align: center; margin: 12px 0; }
   .menu-card  { margin-bottom: 20px; }
+
+  #services,
+  .locations-section {
+    background-image: url('../../media/images/label-on-chair-full.jpg');
+    background-attachment: scroll;
+  }
   .gallery-strip { margin: 24px -20px 32px; }
   .gallery-item  { width: 240px; height: 280px; }
 

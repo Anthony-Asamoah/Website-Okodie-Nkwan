@@ -77,6 +77,17 @@
 </head>
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
+<!-- ========== PAGE LOADER ========== -->
+<div id="page-loader">
+  <div class="loader-inner">
+    <svg class="loader-ring" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+      <circle class="loader-ring__track" cx="30" cy="30" r="24"/>
+      <circle class="loader-ring__fill"  cx="30" cy="30" r="24"/>
+    </svg>
+    <span class="loader-wordmark">Ɔkɔdeɛ Nkwan</span>
+  </div>
+</div>
+
 <!-- ========== NAVBAR ========== -->
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -173,6 +184,28 @@
     </div>
 </div>
 
+<!-- ========== VALUES ========== -->
+<div class="container-fluid values-section">
+    <div class="row">
+        <div class="col-sm-4 text-center slideanim">
+            <span class="logo-small glyphicon glyphicon-cutlery"></span>
+        </div>
+        <div class="col-sm-8">
+            <span class="section-label">What We Stand For</span>
+            <h2>Our Values</h2>
+            <div class="section-divider"></div>
+            <h4>
+                <strong>MISSION:</strong> To serve high-quality, authentic Ghanaian dishes with consistency and care,
+                delivering excellent customer service while creating a welcoming space that feels like home.
+            </h4>
+            <p>
+                <strong>VISION:</strong> To be recognized among the top restaurants in Ghana, celebrated for our rich
+                flavours, cultural authenticity, and unforgettable dining experience.
+            </p>
+        </div>
+    </div>
+</div>
+
 <!-- ========== MENU ========== -->
 <div id="services" class="container-fluid text-center">
     <span class="section-label">What We Serve</span>
@@ -188,6 +221,7 @@
                 <!--                <span class="menu-icon-lg">🍚</span>-->
                 <h4>Swallows</h4>
                 <ul>
+
                     <li>Fufu — 20₵ and above</li>
                     <li>Banku — 10₵ and above</li>
                     <li>Kokonte — 10₵ and above</li>
@@ -227,28 +261,6 @@
                     <li>Tilapia — 40₵</li>
                 </ul>
             </div>
-        </div>
-    </div>
-</div>
-
-<!-- ========== VALUES ========== -->
-<div class="container-fluid values-section">
-    <div class="row">
-        <div class="col-sm-4 text-center slideanim">
-            <span class="logo-small glyphicon glyphicon-cutlery"></span>
-        </div>
-        <div class="col-sm-8">
-            <span class="section-label">What We Stand For</span>
-            <h2>Our Values</h2>
-            <div class="section-divider"></div>
-            <h4>
-                <strong>MISSION:</strong> To serve high-quality, authentic Ghanaian dishes with consistency and care,
-                delivering excellent customer service while creating a welcoming space that feels like home.
-            </h4>
-            <p>
-                <strong>VISION:</strong> To be recognized among the top restaurants in Ghana, celebrated for our rich
-                flavours, cultural authenticity, and unforgettable dining experience.
-            </p>
         </div>
     </div>
 </div>
@@ -709,5 +721,10 @@
 </footer>
 
 <script src="static/js/script.js"></script>
+<script>
+  window.addEventListener('load', function () {
+    document.getElementById('page-loader').classList.add('loaded');
+  });
+</script>
 </body>
 </html>
