@@ -444,6 +444,7 @@ p { color: var(--text-body); }
    MENU SECTION
    =========================== */
 #services {
+  background-color: var(--color-dark);
   background-image: url('../../media/images/label-on-chair.jpg');
   background-size: cover;
   background-position: center;
@@ -480,8 +481,8 @@ p { color: var(--text-body); }
 
 /* Section headings — white against the dark overlay */
 #services h2           { color: #ffffff; -webkit-text-stroke: 1px var(--color-secondary); font-weight: 800; }
-#services > .section-label { color: #ffffff; letter-spacing: 4px; font-weight: 700; mix-blend-mode: overlay; }
-#services > h4         { color: #ffffff; font-weight: 600; mix-blend-mode: overlay; }
+#services > .section-label { color: #ffffff; letter-spacing: 4px; font-weight: 700; }
+#services > h4         { color: #ffffff; font-weight: 600; }
 #services .section-divider { background-color: var(--color-secondary); opacity: 0.7; }
 
 /* Light frosted-glass cards — warm cream tint, dark text inside */
@@ -1026,6 +1027,7 @@ textarea.form-control {
    LOCATIONS / MAP SECTION
    =========================== */
 .locations-section {
+  background-color: var(--color-dark);
   background-image: url('../../media/images/label-on-chair.jpg');
   background-size: cover;
   background-position: center 50%;
@@ -1060,13 +1062,12 @@ textarea.form-control {
 .locations-section > * { position: relative; }
 
 .locations-section h2              { color: #ffffff; -webkit-text-stroke: 1px var(--color-gold); font-weight: 800; }
-.locations-section .section-label  { color: #ffffff; font-weight: 700; mix-blend-mode: overlay; }
+.locations-section .section-label  { color: #ffffff; font-weight: 700; }
 .locations-section .section-divider { background-color: var(--color-secondary); opacity: 0.7; }
 
 .locations-subtitle {
   color: #ffffff;
   font-weight: 600;
-  mix-blend-mode: overlay;
   font-size: 15px;
   margin-bottom: 48px;
   margin-top: -16px;
