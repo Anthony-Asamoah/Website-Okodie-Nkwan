@@ -415,6 +415,24 @@ p { color: var(--text-body); }
   text-decoration: none;
 }
 
+.cta-btn--filled {
+  background-color: var(--color-primary);
+  color: var(--color-cream);
+}
+
+.cta-btn--filled:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-cream);
+}
+
+.gallery-ctas {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 12px 0 52px;
+  flex-wrap: wrap;
+}
+
 /* ===========================
    VALUES SECTION
    =========================== */
