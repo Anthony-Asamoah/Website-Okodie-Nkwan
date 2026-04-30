@@ -692,6 +692,30 @@ p { color: var(--text-body); }
   padding: 40px 0 60px;
 }
 
+/* Stack all items in the same grid cell so the container's height is
+   intrinsically the height of the tallest item — eliminates the layout
+   shift that occurs when switching between testimonials of different lengths. */
+#myCarousel .carousel-inner {
+  display: grid;
+}
+
+#myCarousel .carousel-inner > .item {
+  grid-column: 1;
+  grid-row: 1;
+  display: block !important;
+  position: relative !important;
+  left: 0 !important;
+  width: auto !important;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.45s ease-in-out !important;
+}
+
+#myCarousel .carousel-inner > .item.active {
+  visibility: visible;
+  opacity: 1;
+}
+
 .item h4 {
   font-family: var(--font-display);
   font-size: 18px;
