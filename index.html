@@ -892,9 +892,19 @@
         });
       }, { threshold: 0.5 }).observe(jumbotron);
 
+      var scrollTicking = false;
+      function onScroll() {
+        if (scrollTicking) return;
+        scrollTicking = true;
+        requestAnimationFrame(function () {
+          scrollTicking = false;
+          onHeroInteraction();
+        });
+      }
+
       jumbotron.addEventListener('touchstart', onHeroInteraction, { passive: true });
       jumbotron.addEventListener('touchmove', onHeroInteraction, { passive: true });
-      window.addEventListener('scroll', onHeroInteraction, { passive: true });
+      window.addEventListener('scroll', onScroll, { passive: true });
     }
   });
 </script>
