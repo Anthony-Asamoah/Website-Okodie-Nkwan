@@ -196,9 +196,8 @@
 
 <!-- ========== HERO ========== -->
 <div class="jumbotron">
-    <!-- Mobile video background (hidden on desktop via CSS) -->
-    <video class="hero-video" autoplay muted loop playsinline>
-        <source src="media/videos/hero-vid.MP4" type="video/mp4">
+    <!-- Mobile video background (hidden on desktop via CSS); source injected by JS after load, mobile only -->
+    <video id="hero-video" class="hero-video" muted loop playsinline preload="none">
     </video>
 
     <!-- Dark overlay (always on, ensures text legibility) -->
@@ -847,6 +846,16 @@
   document.getElementById('footer-year').textContent = new Date().getFullYear();
   window.addEventListener('load', function () {
     document.getElementById('page-loader').classList.add('loaded');
+
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      var heroVideo = document.getElementById('hero-video');
+      var source = document.createElement('source');
+      source.src = 'media/videos/hero-vid.MP4';
+      source.type = 'video/mp4';
+      heroVideo.appendChild(source);
+      heroVideo.load();
+      heroVideo.play().catch(function () {});
+    }
   });
 </script>
 </body>
