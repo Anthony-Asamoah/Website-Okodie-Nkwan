@@ -270,6 +270,12 @@ p { color: var(--text-body); }
   padding: 130px 25px 90px;
   text-align: center;
   width: 100%;
+  transition: opacity 0.6s ease;
+}
+
+/* Mobile only: faded while the hero video plays uninterrupted, so it can show through */
+.hero-content--faded {
+  opacity: 0.2;
 }
 
 .hero-badge {

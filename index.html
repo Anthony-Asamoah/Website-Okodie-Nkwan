@@ -855,6 +855,46 @@
       heroVideo.appendChild(source);
       heroVideo.load();
       heroVideo.play().catch(function () {});
+
+      // Fade the hero text after 5s of undisturbed video watching so the
+      // video can show through; restore it on any touch/scroll interaction
+      // with the hero, and reset it whenever the hero leaves the viewport.
+      var heroContent = document.querySelector('.hero-content');
+      var jumbotron = document.querySelector('.jumbotron');
+      var HERO_FADE_DELAY = 5000;
+      var heroVisible = false;
+      var fadeTimer = null;
+
+      function showHeroText() {
+        heroContent.classList.remove('hero-content--faded');
+      }
+
+      function scheduleHeroFade() {
+        clearTimeout(fadeTimer);
+        if (!heroVisible) return;
+        fadeTimer = setTimeout(function () {
+          heroContent.classList.add('hero-content--faded');
+        }, HERO_FADE_DELAY);
+      }
+
+      function onHeroInteraction() {
+        if (!heroVisible) return;
+        showHeroText();
+        scheduleHeroFade();
+      }
+
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          heroVisible = entry.isIntersecting;
+          clearTimeout(fadeTimer);
+          showHeroText();
+          if (heroVisible) scheduleHeroFade();
+        });
+      }, { threshold: 0.5 }).observe(jumbotron);
+
+      jumbotron.addEventListener('touchstart', onHeroInteraction, { passive: true });
+      jumbotron.addEventListener('touchmove', onHeroInteraction, { passive: true });
+      window.addEventListener('scroll', onHeroInteraction, { passive: true });
     }
   });
 </script>
