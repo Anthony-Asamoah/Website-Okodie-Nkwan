@@ -43,6 +43,9 @@
   --radius:    8px;
   --radius-lg: 16px;
   --ease:      0.28s ease;
+  /* Pure timing functions (--ease above bundles a duration, so it can't be reused here) */
+  --ease-exit:  cubic-bezier(0.4, 0, 1, 1);   /* accelerate away */
+  --ease-enter: cubic-bezier(0, 0, 0.2, 1);   /* decelerate into place */
 }
 
 /* ===========================
@@ -270,14 +273,26 @@ p { color: var(--text-body); }
   padding: 130px 25px 90px;
   text-align: center;
   width: 100%;
-  transition: opacity 0.6s ease;
 }
 
-/* Faded while the hero video plays uninterrupted, so it can show through.
-   Only ever applied on mobile — the mobile-only JS below is what adds this class. */
-.hero-content--faded {
-  opacity: 0.2;
+/* Supporting hero text that steps aside while the video plays uninterrupted,
+   leaving just the Twi wordmark. .hero-content--faded is a state hook only —
+   the rules that actually hide these live in the mobile media query below,
+   since the effect is mobile-only. This is the visible/entering state:
+   quick and decelerating, because it answers a tap and must feel immediate. */
+.hero-chrome {
+  transition:
+    opacity    320ms var(--ease-enter) var(--enter-delay, 0ms),
+    transform  320ms var(--ease-enter) var(--enter-delay, 0ms),
+    visibility 0s    linear            var(--enter-delay, 0ms);
 }
+
+/* Exit peels outside-in, so the small gold label is the last thing to
+   dissolve above the title; entrance rebuilds top-down. */
+.hero-badge   { --exit-delay: 140ms; --enter-delay:   0ms; }
+.h1-en        { --exit-delay: 210ms; --enter-delay:  50ms; }
+.hero-tagline { --exit-delay:  70ms; --enter-delay: 100ms; }
+.hero-socials { --exit-delay:   0ms; --enter-delay: 150ms; }
 
 .hero-badge {
   display: inline-block;
@@ -1438,6 +1453,21 @@ footer p {
   .hero-video { display: block; }
   .jumbotron  { background-image: none; background-color: var(--color-dark); }
 
+  /* Hidden state for the supporting hero text — scoped to mobile so a phone
+     rotated to landscape (>768px, where the video switches off) can never be
+     left with an empty hero. Slow and accelerating, since it's ambient.
+     visibility flips only after the fade finishes, which keeps the social
+     links out of the tab order while they're invisible. */
+  .hero-content--faded .hero-chrome {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition:
+      opacity    600ms var(--ease-exit) var(--exit-delay, 0ms),
+      transform  600ms var(--ease-exit) var(--exit-delay, 0ms),
+      visibility 0s    linear           calc(600ms + var(--exit-delay, 0ms));
+  }
+
   .container-fluid { padding: 52px 20px; }
   .hero-content    { padding: 110px 20px 70px; }
   .hero-content h1 { font-size: 42px; }
@@ -1470,6 +1500,18 @@ footer p {
 @media screen and (max-width: 480px) {
   .hero-content h1 { font-size: 34px; }
   .logo            { font-size: 100px; }
+}
+
+/* The hero fade runs on a timer rather than on request, so honour reduced
+   motion: keep the crossfade (opacity alone is vestibular-safe) but drop the
+   drift and the stagger. Must stay after the rules above to win on source order. */
+@media (prefers-reduced-motion: reduce) {
+  .hero-chrome,
+  .hero-content--faded .hero-chrome {
+    transform: none;
+    --exit-delay: 0ms;
+    --enter-delay: 0ms;
+  }
 }
 
 /* ===========================
