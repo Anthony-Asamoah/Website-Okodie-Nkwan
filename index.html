@@ -205,16 +205,16 @@
 
     <!-- Hero content -->
     <div class="hero-content">
-        <span class="hero-badge">Authentic Ghanaian Chop Bar · Abelemkpe, Accra</span>
-        <h1><span class="h1-en">Okodie Nkwan</span>Ɔkɔdeɛ Nkwan</h1>
-        <p class="hero-tagline">
+        <span class="hero-badge hero-chrome">Authentic Ghanaian Chop Bar · Abelemkpe, Accra</span>
+        <h1><span class="h1-en hero-chrome">Okodie Nkwan</span>Ɔkɔdeɛ Nkwan</h1>
+        <p class="hero-tagline hero-chrome">
             A steaming bowl from the chop bar place,<br>
             Slow-cooked, a genuine taste.<br>
             Filled with love so true,<br>
             Ghana, on a plate for you.
         </p>
 
-        <div class="hero-socials">
+        <div class="hero-socials hero-chrome">
             <span class="hero-socials-label">Follow us</span>
             <div class="hero-socials-icons">
                 <a href="https://www.instagram.com/Okodienkwan.gh" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="Instagram">
@@ -847,7 +847,8 @@
   window.addEventListener('load', function () {
     document.getElementById('page-loader').classList.add('loaded');
 
-    if (window.matchMedia('(max-width: 768px)').matches) {
+    var mobileMq = window.matchMedia('(max-width: 768px)');
+    if (mobileMq.matches) {
       var heroVideo = document.getElementById('hero-video');
       var source = document.createElement('source');
       source.src = 'media/videos/hero-vid.MP4';
@@ -905,6 +906,17 @@
       jumbotron.addEventListener('touchstart', onHeroInteraction, { passive: true });
       jumbotron.addEventListener('touchmove', onHeroInteraction, { passive: true });
       window.addEventListener('scroll', onScroll, { passive: true });
+
+      // The width check above only runs at load, so rotating to landscape
+      // (>768px, where the video switches off) would otherwise leave a stale
+      // timer running. Clear it on the way out, resume on the way back in.
+      if (mobileMq.addEventListener) {
+        mobileMq.addEventListener('change', function (e) {
+          clearTimeout(fadeTimer);
+          showHeroText();
+          if (e.matches && heroVisible) scheduleHeroFade();
+        });
+      }
     }
   });
 </script>
