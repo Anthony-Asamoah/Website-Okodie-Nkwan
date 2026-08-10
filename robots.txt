@@ -1,4 +1,84 @@
+# Okodie Nkwan (Ɔkɔdeɛ Nkwan) — https://okodienkwan.com
+# Everything on this site is public and intended to be indexed.
+
 User-agent: *
+Allow: /
+
+# --- Microsoft Bing (also powers Yahoo, DuckDuckGo, Ecosia, Copilot) ---
+User-agent: bingbot
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+User-agent: BingPreview
+Allow: /
+
+# --- Yahoo ---
+User-agent: Slurp
+Allow: /
+
+# --- DuckDuckGo ---
+User-agent: DuckDuckBot
+Allow: /
+
+# --- Apple (Siri, Spotlight, Safari suggestions) ---
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# --- Brave Search ---
+User-agent: Bravebot
+Allow: /
+
+# --- Yandex ---
+User-agent: YandexBot
+Allow: /
+
+# --- Seznam (CZ), Naver (KR), Baidu (CN) ---
+User-agent: SeznamBot
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# --- AI answer engines: allowed, so the restaurant can be cited in answers ---
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Amazonbot
 Allow: /
 
 Sitemap: https://okodienkwan.com/sitemap.xml

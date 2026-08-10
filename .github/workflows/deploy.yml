@@ -47,3 +47,14 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Tells Bing, Yahoo, DuckDuckGo, Yandex, Seznam and Naver that the page
+      # changed, instead of waiting for their next crawl. Key file must stay at
+      # https://okodienkwan.com/<key>.txt for the request to be accepted.
+      - name: Ping IndexNow
+        continue-on-error: true
+        env:
+          INDEXNOW_KEY: aacb809b64b1a07b0d37a824d6f4e17f
+        run: |
+          curl -sS -o /dev/null -w 'IndexNow responded %{http_code}\n' \
+            "https://api.indexnow.org/indexnow?url=https%3A%2F%2Fokodienkwan.com%2F&key=${INDEXNOW_KEY}&keyLocation=https%3A%2F%2Fokodienkwan.com%2F${INDEXNOW_KEY}.txt"

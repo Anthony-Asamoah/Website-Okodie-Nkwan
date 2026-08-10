@@ -1,9 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://okodienkwan.com/</loc>
-    <lastmod>2026-04-30</lastmod>
+    <lastmod>2026-08-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+
+    <image:image>
+      <image:loc>https://okodienkwan.com/media/images/logo.png</image:loc>
+      <image:title>Ɔkɔdeɛ Nkwan (Okodie Nkwan) logo</image:title>
+      <image:caption>Logo of Okodie Nkwan, a Ghanaian chop bar in Abelemkpe, Accra</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://okodienkwan.com/media/images/header-img-2.png</image:loc>
+      <image:title>Okodie Nkwan chop bar, Abelemkpe, Accra</image:title>
+      <image:caption>Fufu and soup served at Okodie Nkwan chop bar in Abelemkpe, Accra</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://okodienkwan.com/media/images/fufu.webp</image:loc>
+      <image:title>Fufu and light soup</image:title>
+      <image:caption>Fufu with light soup at Okodie Nkwan, Abelemkpe, Accra</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://okodienkwan.com/media/images/fufu_snails.jpeg</image:loc>
+      <image:title>Fufu with snails</image:title>
+      <image:caption>Fufu served with snails at Okodie Nkwan, Accra</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://okodienkwan.com/media/images/fufu_and_pepper_soup.jpeg</image:loc>
+      <image:title>Fufu and pepper soup</image:title>
+      <image:caption>Fufu with pepper soup at Okodie Nkwan, Accra</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://okodienkwan.com/media/images/aassorted_fufu.jpeg</image:loc>
+      <image:title>Assorted fufu</image:title>
+      <image:caption>Assorted fufu with mixed proteins at Okodie Nkwan, Accra</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://okodienkwan.com/media/images/fufue_okro.jpeg</image:loc>
+      <image:title>Fufu and okro soup</image:title>
+      <image:caption>Fufu with okro soup at Okodie Nkwan, Accra</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://okodienkwan.com/media/images/fufu_1.jpeg</image:loc>
+      <image:title>Classic fufu</image:title>
+      <image:caption>Classic Ghanaian fufu at Okodie Nkwan, Abelemkpe</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://okodienkwan.com/media/images/fish_fufu.jpeg</image:loc>
+      <image:title>Fufu with fish</image:title>
+      <image:caption>Fufu served with fish at Okodie Nkwan, Accra</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://okodienkwan.com/media/images/meat_pepper_soup.jpeg</image:loc>
+      <image:title>Pepper soup with meat</image:title>
+      <image:caption>Pepper soup with goat meat at Okodie Nkwan, Accra</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://okodienkwan.com/media/images/pepper_soup.jpeg</image:loc>
+      <image:title>Spiced pepper soup</image:title>
+      <image:caption>Spiced Ghanaian pepper soup at Okodie Nkwan, Accra</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://okodienkwan.com/media/images/founder.jpg</image:loc>
+      <image:title>Charity Appiah, founder of Okodie Nkwan</image:title>
+      <image:caption>Charity Appiah, founder of Okodie Nkwan chop bar in Abelemkpe, Accra</image:caption>
+    </image:image>
   </url>
 </urlset>
